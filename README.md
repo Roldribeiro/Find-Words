@@ -1,2 +1,4 @@
 # Find-Words
- Jogo de adivinhar palavras, estilo forca, para interação com o chat da live.
+ Jogo simples de adivinhar palavras, estilo forca, para interação com o chat de lives.
+
+

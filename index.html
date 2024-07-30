@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qual a Palavra?</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Qual a Palavra?</h1>
+            
+        </header>
+        <div class="side-content" id="ranking">
+            <h3>Ranking:</h3>
+            <ul id="lista-ranking"></ul>
+        </div>
+        <div class="content">
+            <div class="side-content" id="configuracoes">
+                <h4>Temas:</h4>
+                <select id="selecionar-categoria"></select>
+                <input type="password" id="nova-palavra" placeholder="Digite uma nova palavra">
+                <button id="iniciar-jogo">Iniciar Jogo</button>
+            </div>
+            <div class="main-content" id="game">
+                <div id="categoria"></div>
+                <div id="numero-caracteres"></div>
+                <div id="progresso"></div>
+                <div id="tentativas"></div>
+                <div id="letras-erradas"></div>
+                <div class="palara-atual" id="palavra-atual"></div>
+
+                <input type="text" id="tentativa" placeholder="Digite uma letra ou a palavra completa">
+                <button id="tentar">Tentar</button>
+            </div>
+           
+        </div>
+    </div>
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <h3>Parabéns você acertou em primeiro!</h3>
+            <input type="text" id="nome-vencedor-popup" placeholder="Nome do vencedor da rodada!">
+            <button id="salvar-vencedor-popup">Salvar Vencedor</button>
+        </div>
+    </div>
+    <footer>
+        
+    </footer>
+
+    <!-- Elementos de áudio para sons -->
+    <audio id="letra-certa-som" src="correct-2-46134.mp3"></audio> <!-- Som para letra certa -->
+    <audio id="letra-errada-som" src="erro.mp3"></audio> <!-- Som para letra errada -->
+    
+    <script src="script.js"></script>
+</body>
+</html>
