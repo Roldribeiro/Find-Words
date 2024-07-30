@@ -26,6 +26,7 @@ body {
     padding: 1px 0;
     font-size: 1.5em;
     font-weight: bold;
+    text-align: center;
  
 }
 
@@ -112,13 +113,14 @@ header h1 {
 }
 
 button {
+    width: 100%;
     margin-top: 10px;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     background-color: #007bff;
     color: white;
-    font-size: 16px;
+    font-size: 12px;
     cursor: pointer;
 }
 
@@ -147,10 +149,7 @@ ul li {
     border-radius: 5px;
 }
 
-#letras-erradas {
-    color: rgb(187, 11, 46);
-    font-size: 1em;
-}
+
 
 /* Estilo do campo nome vencedor */
 #nome-vencedor {

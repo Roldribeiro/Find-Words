@@ -99,9 +99,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         console.log(`Palavra escolhida: ${palavraAtual}`); // Revelar a palavra no console
         numeroCaracteresElemento.textContent = `Número de Letras: ${contarCaracteres(palavraAtual)}`;
-        progressoElemento.textContent = mostrarProgresso(palavraAtual, letrasCertas);
+        atualizarProgresso();
         tentativasElemento.textContent = `Tentativas restantes: ${maxTentativas - tentativasErradas}`;
-        letrasErradasElemento.textContent = 'Letras erradas: ';
+        atualizarLetrasErradas();
         palavraAtualElemento.textContent = `Palavra Atual: ${palavraAtual}`; // Atualiza a palavra na nova posição
     }
 
@@ -113,14 +113,26 @@ document.addEventListener('DOMContentLoaded', function() {
         return palavra.replace(/\s/g, '').length;
     }
 
-    function mostrarProgresso(palavra, letrasCertas) {
-        return palavra.split('').map(letra => {
+    function atualizarProgresso() {
+        progressoElemento.innerHTML = palavraAtual.split('').map(letra => {
             if (letra === ' ') {
                 return '   '; // Três espaços para separar palavras
             }
             const letraSemAcento = removerAcentos(letra).toLowerCase();
-            return letrasCertas.has(letraSemAcento) ? letra : '_';
+            if (letrasCertas.has(letraSemAcento)) {
+                return letra;
+            } else if (letrasErradas.has(letraSemAcento)) {
+                return `<span style="color: red;">${letra}</span>`;
+            } else {
+                return '_';
+            }
         }).join(' ').replace(/ {3}/g, '   '); // Adiciona um espaço após cada underscore e substitui três espaços por três espaços consecutivos
+    }
+
+    function atualizarLetrasErradas() {
+        letrasErradasElemento.innerHTML = 'Letras erradas: ' + Array.from(letrasErradas).map(letra => {
+            return `<span style="color: red;">${letra}</span>`;
+        }).join(', ');
     }
 
     function verificarFimDeJogo() {
@@ -209,9 +221,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        progressoElemento.textContent = mostrarProgresso(palavraAtual, letrasCertas);
+        atualizarProgresso();
         tentativasElemento.textContent = `Tentativas restantes: ${maxTentativas - tentativasErradas}`;
-        letrasErradasElemento.textContent = `Letras erradas: ${Array.from(letrasErradas).join(', ')}`;
+        atualizarLetrasErradas();
         verificarFimDeJogo();
     }
 
