@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
         tentativaInput.value = '';
 
         if (tentativa.length === 0) {
-            alert('Digite uma letra ou a palavra completa!');
+            
             return;
         }
 
