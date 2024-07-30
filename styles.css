@@ -18,6 +18,7 @@ body {
     max-width: 1200px;
     max-height: 600px;
     padding-right: 9%;
+ 
    
 }
 
@@ -41,10 +42,14 @@ body {
 }
 
 header {
-    margin-top: -25%;
-    width: 112%;
+    margin-top: -40%;
+    width: max-content;
     text-align: center;
     margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 50px;
+    
    
    
    
@@ -53,20 +58,13 @@ header {
 
 header h1 {
    
-    font-size: 1.7em;
-    padding-top: 1%;
-    padding-bottom: 1%;
-   
+    font-size: 1.9em;
+    padding: 10px;
     border: #19191a;
     border-radius: 5px;
     background-color: #007bff;
- 
     color: #efeff0;
-    
- 
 }
-
-
 
 .content {
     display: flex;
@@ -93,6 +91,7 @@ header h1 {
 
 .side-content {
     width: 30%;
+    min-height: 120px;
 }
 
 .side-content h3 {
@@ -174,6 +173,7 @@ ul li {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
+    margin-top: -10%;
 }
 
 .popup-content {
