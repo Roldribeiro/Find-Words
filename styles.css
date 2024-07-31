@@ -48,7 +48,7 @@ body {
 }
 
 header {
-    margin-top: -40%;
+    margin-top: -30%;
     width: max-content;
     text-align: center;
     margin-bottom: 20px;
@@ -76,15 +76,16 @@ header h1 {
 .content {
     display: flex;
     justify-content: space-between;
-    flex-direction: column; /* Layout horizontal por padrão */
+    flex-direction: column; /* vertical */
 }
 
 .main-content, .side-content {
-    padding: 10px;
+    padding: 15px;
     border: 1px solid #919191;
-    border-radius: 10px;
+    border-radius: 15px;
     background-color: #d6e0e9;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    
 }
 
 #tentativas {
@@ -129,6 +130,7 @@ button {
     color: white;
     font-size: 12px;
     cursor: pointer;
+    box-sizing: border-box;
 }
 
 #selecionar-categoria{
@@ -140,16 +142,17 @@ button {
     font-size: 12px;
     cursor: pointer;
     background-color: #e9ecef;
+    box-sizing: border-box;
 }
 
 #nova-palavra{
-    width: 220px;
-    
+    width: 100%;
     padding: 10px 20px;
     border: 2px solid #919191;
     border-radius: 5px;
     font-size: 12px;
     background-color: #e9ecef;
+    box-sizing: border-box;
 
 }
 button:hover {
@@ -182,17 +185,18 @@ ul li {
     border-radius: 5px;
 }
 #tentativa {
-    width: 220px;
-    
+    width: 100%;
     padding: 10px 20px;
     border: 2px solid #919191;
     border-radius: 5px;
     font-size: 12px;
     background-color: #e9ecef;
-    
-   
-}
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top: 10px;
+    box-sizing: border-box; /* Adicionado */
 
+}
 
 /* Estilo do campo nome vencedor */
 
@@ -290,19 +294,5 @@ input[type="text"]::placeholder,
 
     footer {
         font-size: 14px;
-    }
-
-    #tentativa {
-        width: 100%;
-        padding: 10px 10px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        border: 2px solid #919191;
-        border-radius: 5px;
-        font-size: 12px;
-        cursor: pointer;
-        margin-left: 1px;
-        margin-right: 1px;
-        
     }
 }
