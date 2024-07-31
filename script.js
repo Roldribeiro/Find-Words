@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
         atualizarProgresso();
         tentativasElemento.textContent = `Tentativas restantes: ${maxTentativas - tentativasErradas}`;
         atualizarLetrasErradas();
-        palavraAtualElemento.textContent = `Palavra Atual: ${palavraAtual}`; // Atualiza a palavra na nova posição
+        palavraAtualElemento.textContent = `${palavraAtual}`; // Atualiza a palavra na nova posição
     }
 
     function removerAcentos(texto) {
