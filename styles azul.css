@@ -1,7 +1,7 @@
 /* Estilos gerais */
 body {
     font-family: Verdana, sans-serif;
-    background-color: #9D8AA6;
+    background-color: #f0f0f0;
     color: #333;
     margin: 0;
     padding: 0;
@@ -10,7 +10,7 @@ body {
     align-items: center;
     min-height: 100vh;
     font-weight: bold;
-    font-size: 13px;
+    font-size: 12px;
     overflow: hidden;
 
 }
@@ -30,14 +30,12 @@ body {
     padding: 5px 5px;
     padding-top: 10px;
     padding-bottom: 15px;
-    font-size: 1.6em;
+    font-size: 1.5em;
     font-weight: bold;
     text-align: center;
  
 }
-#letras-erradas{
-    font-size: 1em
-}
+
 #palavra-atual {
     position: fixed;
     bottom: 0px;
@@ -45,11 +43,10 @@ body {
     right: 0;
     width: 80%;
     text-align: center;
-    background-color:#6E5D73;
-    border-top: 1px solid #6E5D73;
+    background-color:#53a5fd;
+    border-top: 1px solid #0056b3;
     font-size: 0.9em;
     margin: auto;
-    color: #ffffff;
     
      /* Certifique-se de que fique acima de outros elementos */
 }
@@ -77,9 +74,8 @@ header h1 {
     font-size: 1.9em;
     padding: 10px;
     border-radius: 5px;
-    background-color: #6E5D73;
-    color: #ffffff;
-    
+    background-color: #007bff;
+    color: #efeff0;
 }
 
 .content {
@@ -91,9 +87,9 @@ header h1 {
 
 .main-content, .side-content {
     padding: 15px;
-    border: 3px solid #6E5D73;
+    border: 1px solid #919191;
     border-radius: 15px;
-    background-color: #D9D0D8;
+    background-color: #d6e0e9;
     margin-bottom: 5px;
     margin-top: 5px;
     
@@ -153,7 +149,7 @@ button {
     padding: 5px 10px;
     border: none;
     border-radius: 5px;
-    background-color: #82698C;
+    background-color: #007bff;
     color: white;
     font-size: 12px;
     cursor: pointer;
@@ -164,18 +160,18 @@ button {
     width: 100%;
     margin-top: 10px;
     padding: 5px 10px;
-    border: 2px solid #82698C;
+    border: 2px solid #919191;
     border-radius: 5px;
     font-size: 12px;
+    cursor: pointer;
     background-color: #e9ecef;
     box-sizing: border-box;
-    
 }
 
 #nova-palavra{
     width: 100%;
     padding: 5px 10px;
-    border: 2px solid #82698C;
+    border: 2px solid #919191;
     border-radius: 5px;
     font-size: 12px;
     background-color: #e9ecef;
@@ -183,7 +179,7 @@ button {
 
 }
 button:hover {
-    background-color: #6E5D73;
+    background-color: #0056b3;
 }
 select {
     
@@ -191,21 +187,14 @@ select {
     padding: 10px 10px;
     margin-top: 10px;
     margin-bottom: 10px;
-    border: 2px solid #82698C;
+    border: 2px solid #919191;
     border-radius: 5px;
     font-size: 12px;
     cursor: pointer;
     margin-left: 1px;
     margin-right: 1px;
-    color: #614b6a;
-
-    
-
-
- 
     
 }
-
 
 ul {
     list-style-type: none;
@@ -213,15 +202,15 @@ ul {
 }
 
 ul li {
-    background-color: #BBAABF;
+    background-color: #e9ecef;
     margin-bottom: 5px;
     padding: 5px 10px;
     border-radius: 5px;
 }
 #tentativa {
     width: 100%;
-    padding: 10px 10px;
-    border: 2px solid #82698C;
+    padding: 5px 10px;
+    border: 2px solid #919191;
     border-radius: 5px;
     font-size: 12px;
     background-color: #e9ecef;
@@ -234,6 +223,7 @@ ul li {
 
 /* Estilo do campo nome vencedor */
 
+
 /* Estilo do popup */
 .popup {
     display: none;
@@ -245,17 +235,19 @@ ul li {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
+    margin-top: -10%;
 }
 
 .popup-content {
-    background-color: #D9D0D8;
-    margin: 15% auto; /* Ajuste a margem para centralizar */
-    padding: 15px;
-    border: 2px solid #82698C;
+    background-color: hsl(0, 0%, 100%);
+    margin: 50% auto;
+    padding: 20px;
+    border: 1px solid #888;
     width: 80%;
     max-width: 400px;
     border-radius: 10px;
     text-align: center;
+    
 }
 
 .close-btn {
@@ -273,17 +265,12 @@ ul li {
 }
 
 #nome-vencedor-popup {
-    width: 100%;
-    padding: 10px 0px;
-    margin-top: 5px;
-    margin-bottom: 0px;
-    border: 1px solid #82698C;
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: bold;
-    font-size: 15px;
-    color: #614b6a;
 }
 
 input[type="text"]::placeholder,
@@ -291,10 +278,11 @@ input[type="text"]::placeholder,
 #nome-vencedor-popup::placeholder 
 {
     font-size: 12px; /* Ajuste o tamanho conforme necessário */
-    color: #614b6a;
-    margin: 2px;
-    text-align: center;
+    color: #999;
+    
+
 }
+
 /* Estilos responsivos */
 @media (max-width: 768px) {
     
