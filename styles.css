@@ -38,6 +38,10 @@ body {
     color: #000000; /* Branco */
     border-left: 8px solid #1DA1F2; /* Borda azul */
     border-right: 8px solid #FE2C55; /* Borda vermelha */
+    
+}
+#progresso::first-letter {
+    text-transform: capitalize;
 }
 
 #letras-erradas {
