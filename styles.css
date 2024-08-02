@@ -142,6 +142,8 @@ header h1 {
     box-sizing: border-box;
 }
 #lista-ranking {
+    width: 80%;
+    max-width: 350px;
     position:relative;
     top: -175px; /* Use 'top' ao invés de 'padding-top' para posicionamento absoluto */
     left: 60px; /* Use 'left' ao invés de 'padding-left' para posicionamento absoluto */
@@ -149,7 +151,6 @@ header h1 {
     max-height: 160px; /* Altura máxima para mostrar 5 pessoas (ajuste conforme necessário) */
     overflow-y: auto; /* Adiciona a barra de rolagem vertical */
     overflow-y: hidden;
-    max-width: 300px;
     order: 1;
     list-style:none; /* Remove os marcadores da lista */
     padding-right: 12px; /* Espaço para a barra de rolagem */
@@ -326,6 +327,10 @@ input[type="text"]::placeholder, #nome-vencedor::placeholder, #nome-vencedor-pop
 @media (max-width: 480px) {
     header h1 {
         font-size: 1.5em;
+    }
+    #lista-ranking {
+        
+        max-width: 200px;
     }
 
     .side-content, .main-content {
