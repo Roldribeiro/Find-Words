@@ -21,35 +21,73 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeBtn = document.querySelector('.close-btn');
     const nomeVencedorPopup = document.getElementById('nome-vencedor-popup');
     const salvarVencedorPopupBtn = document.getElementById('salvar-vencedor-popup');
+    const popupFimJogo = document.getElementById('popup-fim-jogo');
+    const mensagemFimJogo = document.getElementById('mensagem-fim-jogo');
+    const fecharPopupFimJogoBtn = document.getElementById('fechar-popup-fim-jogo');
 
-    // Elementos de áudio para sons
     const letraCertaSom = document.getElementById('letra-certa-som');
     const letraErradaSom = document.getElementById('letra-errada-som');
 
-    // Verificar se os elementos de áudio estão carregados
-    letraCertaSom.addEventListener('canplaythrough', () => console.log('letraCertaSom pronto para tocar'));
-    letraErradaSom.addEventListener('canplaythrough', () => console.log('letraErradaSom pronto para tocar'));
+    if (letraCertaSom) {
+        letraCertaSom.addEventListener('canplaythrough', () => console.log('letraCertaSom pronto para tocar'));
+    }
 
-    closeBtn.addEventListener('click', function() {
-        popup.style.display = 'none';
-    });
+    if (letraErradaSom) {
+        letraErradaSom.addEventListener('canplaythrough', () => console.log('letraErradaSom pronto para tocar'));
+    }
 
-    window.addEventListener('click', function(event) {
-        if (event.target === popup) {
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
             popup.style.display = 'none';
-        }
-    });
+        });
+    }
 
-    salvarVencedorPopupBtn.addEventListener('click', function() {
-        const nomeVencedor = nomeVencedorPopup.value.trim();
-        if (nomeVencedor !== '') {
-            adicionarAoRanking(nomeVencedor);
-            nomeVencedorPopup.value = '';
-            popup.style.display = 'none';
-        } else {
-            alert('Por favor, insira o nome do vencedor.');
+    if (popup) {
+        window.addEventListener('click', function(event) {
+            if (event.target === popup) {
+                popup.style.display = 'none';
+            }
+        });
+    }
+
+    if (popupFimJogo) {
+        window.addEventListener('click', function(event) {
+            if (event.target === popupFimJogo) {
+                popupFimJogo.style.display = 'none';
+            }
+        });
+
+        if (fecharPopupFimJogoBtn) {
+            fecharPopupFimJogoBtn.addEventListener('click', function() {
+                popupFimJogo.style.display = 'none';
+            });
         }
-    });
+    }
+
+    if (listaRanking) {
+        listaRanking.addEventListener('wheel', function(event) {
+            if (event.deltaY > 0) {
+                this.scrollBy({ top: 50, behavior: 'smooth' });
+            } else {
+                this.scrollBy({ top: -50, behavior: 'smooth' });
+            }
+            event.preventDefault();
+        });
+    }
+
+    if (salvarVencedorPopupBtn) {
+        salvarVencedorPopupBtn.addEventListener('click', function() {
+            const nomeVencedor = nomeVencedorPopup.value.trim();
+            if (nomeVencedor !== '') {
+                adicionarAoRanking(nomeVencedor);
+                nomeVencedorPopup.value = '';
+                popup.style.display = 'none';
+            } else {
+                alert('Por favor, insira o nome do vencedor.');
+            }
+        
+        });
+    }
 
     let palavraAtual = '';
     let letrasCertas = new Set();
@@ -62,6 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(response => response.json())
             .then(data => {
                 palavras = data;
+                console.log('Palavras carregadas:', palavras);
                 preencherSelecionarCategoria();
             })
             .catch(error => console.error('Erro ao carregar as palavras:', error));
@@ -75,6 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
             option.textContent = categoria;
             selecionarCategoria.appendChild(option);
         });
+        console.log('Categorias preenchidas:', Object.keys(palavras));
     }
 
     function escolherPalavra() {
@@ -137,10 +177,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function verificarFimDeJogo() {
         if (tentativasErradas >= maxTentativas) {
-            alert(`Que pena! A palavra era "${palavraAtual}"`);
-            reiniciarJogo();
+            mensagemFimJogo.innerText = `Que pena! A palavra era "${palavraAtual}"`;
+            popupFimJogo.style.display = 'block';
         } else if (Array.from(removerAcentos(palavraAtual.toLowerCase())).every(letra => letrasCertas.has(letra))) {
             popup.style.display = 'block';
+            nomeVencedorPopup.focus(); // Adiciona o foco ao campo de entrada
         }
     }
 
@@ -155,18 +196,22 @@ document.addEventListener('DOMContentLoaded', function() {
     function atualizarRanking() {
         listaRanking.innerHTML = '';
         const rankingArray = Object.entries(ranking).sort((a, b) => b[1] - a[1]);
-        rankingArray.forEach(([nome, pontos]) => {
+        rankingArray.forEach(([nome, pontos], index) => {
             const li = document.createElement('li');
-            li.textContent = `${nome}: ${pontos} pontos`;
+            li.textContent = `${index + 1}. ${nome}: ${pontos} pontos`;
             listaRanking.appendChild(li);
         });
     }
 
     function reiniciarJogo() {
+        if (popupFimJogo) {
+            popupFimJogo.style.display = 'none';
+        }
         palavraAtual = '';
-        letrasCertas.clear();
-        letrasErradas.clear();
+        letrasCertas = new Set();
+        letrasErradas = new Set();
         tentativasErradas = 0;
+        palavraAtualElemento.textContent = '';
         escolherPalavra();
     }
 
@@ -174,8 +219,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const tentativa = tentativaInput.value.trim().toLowerCase();
         tentativaInput.value = '';
 
-        if (tentativa.length === 0) {
-            
+        if (tentativa === '') {
+        
             return;
         }
 
@@ -227,13 +272,26 @@ document.addEventListener('DOMContentLoaded', function() {
         verificarFimDeJogo();
     }
 
-    tentarButton.addEventListener('click', tentar);
-    tentativaInput.addEventListener('keydown', function(event) {
-        if (event.key === 'Enter') {
-            tentar();
-        }
-    });
-    iniciarJogoButton.addEventListener('click', reiniciarJogo);
+    if (tentarButton) {
+        tentarButton.addEventListener('click', tentar);
+    }
+
+    if (tentativaInput) {
+        tentativaInput.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                tentar();
+            }
+        });
+    }
+
+    if (iniciarJogoButton) {
+        
+        iniciarJogoButton.addEventListener('click', reiniciarJogo);
+        
+
+    }
+
+    
 
     carregarPalavras();
 });

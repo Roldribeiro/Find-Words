@@ -1,8 +1,8 @@
 /* Estilos gerais */
 body {
     font-family: Verdana, sans-serif;
-    background-color: #9D8AA6;
-    color: #333;
+    background-color: #000000; /* Preto */
+    color: #ffffff; /* Branco */
     margin: 0;
     padding: 0;
     display: flex;
@@ -19,85 +19,83 @@ body {
     position: static;
     width: 70%;
     max-width: 1200px;
-    max-height: 1200px;
-    
-    
-
-   
+    max-height: 1200px;   
 }
 
 #progresso {
-    padding: 5px 5px;
+    width: max-content;
+    margin: auto;
+    margin-bottom:10px;
+    margin-top: 10px;
+    padding: 20px 20px;
     padding-top: 10px;
-    padding-bottom: 15px;
+    padding-bottom: 10px;
     font-size: 1.6em;
     font-weight: bold;
     text-align: center;
- 
+    background-color: #ffffff; /* Preto */
+    border-radius: 15px;
+    color: #000000; /* Branco */
+    border-left: 8px solid #1DA1F2; /* Borda azul */
+    border-right: 8px solid #FE2C55; /* Borda vermelha */
 }
-#letras-erradas{
-    font-size: 1em
+
+#letras-erradas {
+    font-size: 1em;
 }
+
 #palavra-atual {
     position: fixed;
+    padding-left: 20px;
+    padding-right: 20px;
     bottom: 0px;
     left: 0;
     right: 0;
-    width: 80%;
+    width:max-content;
     text-align: center;
-    background-color:#6E5D73;
-    border-top: 1px solid #6E5D73;
+    background-color: #000000; /* Preto */
+    border: 2px solid #FE2C55; /* Vermelho */
+    border-radius: 5px;
     font-size: 0.9em;
     margin: auto;
-    color: #ffffff;
-    
-     /* Certifique-se de que fique acima de outros elementos */
+    color: #ffffff; /* Branco */
 }
 
 header {
+   
     margin-top: -20px;
     width: max-content;
     text-align: center;
-    margin-bottom: -5px;
+    margin-bottom: 15px;
     margin-left: auto;
     margin-right: auto;
-   
-    
-    
-    
-    
-   
-   
-   
-    
+    padding: 5px;
+    background-color: #ffffff; /* Preto */
+    border-radius: 15px;
+    color: #000000; /* Branco */
+    border-left: 8px solid #1DA1F2; /* Borda azul */
+    border-right: 8px solid #FE2C55; /* Borda vermelha */
 }
 
 header h1 {
-   
     font-size: 1.9em;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #6E5D73;
-    color: #ffffff;
     
+    border-radius: 10px;
 }
 
 .content {
     display: flex;
-  
     flex-direction: column; /* vertical */
-    
 }
 
 .main-content, .side-content {
     padding: 15px;
-    border: 3px solid #6E5D73;
+    border: 2px solid #FE2C55; /* Vermelho */
     border-radius: 15px;
-    background-color: #D9D0D8;
+    background-color: #333333; /* Cinza escuro */
     margin-bottom: 5px;
     margin-top: 5px;
-    
-    
+   
 }
 
 #tentativas {
@@ -110,8 +108,6 @@ header h1 {
     order: 2;
     margin-left: auto;
     margin-right: auto;
-    
-    
 }
 
 .side-content {
@@ -120,30 +116,46 @@ header h1 {
     order: 3;
     margin-left: auto;
     margin-right: auto;
-    
-
+    max-height: 220px;
+    text-align: left;
     
 }
 
 .side-content h3 {
     margin-top: 0;
-    
-}
-.side-content h4 {
-    margin-top: 0;
-    font-size: 0.9;
-    max-width: 1200px;
-    
+    margin: auto;
+    font-size: 1em;
+    text-align:center;
 }
 
-#lista-ranking {
-    font-size: 0.9em; /* Diminuir o tamanho da fonte */
-    max-height: 85px; /* Altura máxima para mostrar 5 pessoas (ajuste conforme necessário) */
-    overflow-y: auto; /* Adiciona a barra de rolagem vertical */
-    padding-right: 10px; /* Espaço para a barra de rolagem */
+.side-content h4 {
+    margin-top: 0;
+    font-size: 0.9em;
     max-width: 1200px;
+}
+.medal-icon {
+    
+    width: 60px; /* Ajuste o tamanho conforme necessário */
+    height: 60px;
+    margin: 1px; /* Espaçamento entre a imagem e o texto */
+    padding: 1px;
+    box-sizing: border-box;
+}
+#lista-ranking {
+    position:relative;
+    top: -175px; /* Use 'top' ao invés de 'padding-top' para posicionamento absoluto */
+    left: 60px; /* Use 'left' ao invés de 'padding-left' para posicionamento absoluto */
+    font-size: 0.9em; /* Diminuir o tamanho da fonte */
+    max-height: 160px; /* Altura máxima para mostrar 5 pessoas (ajuste conforme necessário) */
+    overflow-y: auto; /* Adiciona a barra de rolagem vertical */
+    overflow-y: hidden;
+    max-width: 300px;
     order: 1;
-   
+    list-style:none; /* Remove os marcadores da lista */
+    padding-right: 12px; /* Espaço para a barra de rolagem */
+    padding-left:0px;
+    box-sizing: border-box;
+    
     
 }
 
@@ -153,7 +165,7 @@ button {
     padding: 5px 10px;
     border: none;
     border-radius: 5px;
-    background-color: #82698C;
+    background-color: #FE2C55; /* Vermelho */
     color: white;
     font-size: 12px;
     cursor: pointer;
@@ -162,85 +174,83 @@ button {
 
 #selecionar-categoria{
     width: 100%;
-    margin-top: 10px;
+    margin-top: 1px;
+    margin-bottom: 5px;
     padding: 5px 10px;
-    border: 2px solid #82698C;
+    border: 1px solid #FE2C55; /* Vermelho */
     border-radius: 5px;
-    font-size: 12px;
+    font-size: 10px;
     background-color: #e9ecef;
-    box-sizing: border-box;
-    
+    box-sizing: border-box;   
 }
-
 #nova-palavra{
+    color: #000000;
     width: 100%;
+    margin-top: 1px;
     padding: 5px 10px;
-    border: 2px solid #82698C;
+    border: 1px solid #FE2C55; /* Vermelho */
     border-radius: 5px;
     font-size: 12px;
     background-color: #e9ecef;
     box-sizing: border-box;
+}
 
-}
-button:hover {
-    background-color: #6E5D73;
-}
-select {
+  
+
+#tentativa {
+    width: 100%;
+    margin-top: 1px;
+    padding: 5px 10px;
+    border: 1px solid #FE2C55; /* Vermelho */
+    border-radius: 5px;
+    font-size: 12px;
+    background-color: #e9ecef;
+    box-sizing: border-box;
     
-   
+}
+
+button:hover {
+    background-color: #FE2C55; /* Vermelho */
+}
+
+select {
     padding: 10px 10px;
     margin-top: 10px;
     margin-bottom: 10px;
-    border: 2px solid #82698C;
+    border: 2px solid #FE2C55; /* Vermelho */
     border-radius: 5px;
     font-size: 12px;
     cursor: pointer;
     margin-left: 1px;
     margin-right: 1px;
-    color: #614b6a;
-
-    
-
-
- 
-    
+    color: #000000;
 }
 
-
-ul {
+ol {
     list-style-type: none;
     padding: 0;
+    
 }
 
-ul li {
-    background-color: #BBAABF;
-    margin-bottom: 5px;
+ol li {
+    
+    margin-bottom: 41px;
     padding: 5px 10px;
-    border-radius: 5px;
-}
-#tentativa {
-    width: 100%;
-    padding: 10px 10px;
-    border: 2px solid #82698C;
-    border-radius: 5px;
-    font-size: 12px;
-    background-color: #e9ecef;
-    margin-left: 0%;
-    margin-right: 0%;
-    margin-top: 10px;
-    box-sizing: border-box; /* Adicionado */
-
+    background-color: #ffffff; /* Preto */
+    border-radius: 10px;
+    color: #000000; /* Branco */
+    border-left: 5px solid #1DA1F2; /* Borda azul */
+    border-right: 5px solid #FE2C55; /* Borda vermelha */
+    scroll-behavior: smooth; /* Rolagem suave */
+    box-sizing: border-box;
 }
 
-/* Estilo do campo nome vencedor */
-
-/* Estilo do popup */
 .popup {
     display: none;
     position: fixed;
     z-index: 1;
-    left: 0;
-    top: 0;
+    left: 15px;
+    top: 410px;
     width: 100%;
     height: 100%;
     overflow: auto;
@@ -248,14 +258,15 @@ ul li {
 }
 
 .popup-content {
-    background-color: #D9D0D8;
-    margin: 15% auto; /* Ajuste a margem para centralizar */
+    background-color: #333333; /* Cinza escuro */
+    margin: 0% auto; /* Ajuste a margem para centralizar */
     padding: 15px;
-    border: 2px solid #82698C;
-    width: 80%;
-    max-width: 400px;
+    border: 2px solid #FE2C55; /* Vermelho */
+    width: 60%;
+    max-width: 350px;
     border-radius: 10px;
     text-align: center;
+
 }
 
 .close-btn {
@@ -265,8 +276,7 @@ ul li {
     font-weight: bold;
 }
 
-.close-btn:hover,
-.close-btn:focus {
+.close-btn:hover, .close-btn:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
@@ -277,37 +287,31 @@ ul li {
     padding: 10px 0px;
     margin-top: 5px;
     margin-bottom: 0px;
-    border: 1px solid #82698C;
+    border: 1px solid #FE2C55; /* Vermelho */
     border-radius: 5px;
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
     font-size: 15px;
-    color: #614b6a;
+    color: #000000;
 }
 
-input[type="text"]::placeholder,
-#nome-vencedor::placeholder,
-#nome-vencedor-popup::placeholder 
-{
+input[type="text"]::placeholder, #nome-vencedor::placeholder, #nome-vencedor-popup::placeholder {
     font-size: 12px; /* Ajuste o tamanho conforme necessário */
-    color: #614b6a;
+    color:#000000;
     margin: 2px;
     text-align: center;
 }
+
 /* Estilos responsivos */
 @media (max-width: 768px) {
-    
     .content {
         flex-direction: column; /* Layout vertical para dispositivos menores */
     }
 
-    
     .main-content, .side-content {
-        
         width: 100%; /* Largura total para dispositivos menores */
         margin: 5px 0; /* Espaçamento entre os blocos */
-        
     }
 
     .side-content {
@@ -320,15 +324,12 @@ input[type="text"]::placeholder,
 }
 
 @media (max-width: 480px) {
-    
     header h1 {
         font-size: 1.5em;
-        
     }
 
     .side-content, .main-content {
         padding: 5px;
-        
     }
 
     footer {

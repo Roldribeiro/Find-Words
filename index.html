@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Qual a Palavra?</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="imagens/icon.png" type="image/x-icon">
 </head>
 <body>
     <div class="container">
@@ -14,7 +15,19 @@
         </header>
         <div class="side-content" id="ranking">
             <h3>Ranking:</h3>
-            <ul id="lista-ranking"></ul>
+            <div class="ranking-item">
+                <img src="imagens/gold-medal.png" alt="Gold Medal" class="medal-icon">
+                
+            </div>
+            <div class="ranking-item">
+                <img src="imagens/silver-medal.png" alt="Silver Medal" class="medal-icon">
+                
+            </div>
+            <div class="ranking-item">
+                <img src="imagens/bronze-medal.png" alt="Bronze Medal" class="medal-icon">
+                
+            </div>
+            <ol id="lista-ranking"></ol>
         </div>
         <div class="content">
             <div class="side-content" id="configuracoes">
@@ -43,6 +56,13 @@
             <h3>Parabéns você acertou em primeiro!</h3>
             <input type="text" id="nome-vencedor-popup" placeholder="Nome do vencedor">
             <button id="salvar-vencedor-popup">Salvar Vencedor</button>
+        </div>
+    </div>
+    <div id="popup-fim-jogo" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="fecharPopup('popup-fim-jogo')">&times;</span>
+            <p id="mensagem-fim-jogo"></p>
+            <button onclick="reiniciarJogo()">Reiniciar Jogo</button>
         </div>
     </div>
     <footer>
